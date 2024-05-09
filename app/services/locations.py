@@ -2,7 +2,7 @@ from app.schemas import Location
 
 
 class LocationsService:
-    def find_all(self) -> list[Location]:
+    def list(self) -> list[Location]:
         l1 = Location(
             name="escola",
             zip_code="09700-200",
@@ -24,3 +24,16 @@ class LocationsService:
             items=[]
         )
         return [l1, l2]
+
+    def list_one(self, id: str) -> Location:
+        l2 = Location(
+            name=f"faculdade {id}",
+            zip_code="09700-100",
+            address="rua faculdade",
+            number="100",
+            complement="sala do diretor",
+            contacts=["11912341234", "43514351"],
+            comments="estamos recebendo tudo",
+            items=[]
+        )
+        return l2

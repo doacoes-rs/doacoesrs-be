@@ -5,10 +5,12 @@ from app.services import LocationsService
 
 router = APIRouter()
 
+service = LocationsService()
+
 
 @router.get("")
 def list_location(request: Request) -> list[Location]:
-    return LocationsService().find_all()
+    return service.list()
 
 
 @router.post("")
@@ -28,4 +30,4 @@ def delete_location(request: Request, id: str):
 
 @router.get("/{id}")
 def location(request: Request, id: str):
-    return {"id": id}
+    return service.list_one(id)
