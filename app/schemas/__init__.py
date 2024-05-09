@@ -1,3 +1,4 @@
+import uuid
 from enum import Enum
 from typing import List, Optional
 
@@ -15,15 +16,15 @@ class ItemType(str, Enum):
 
 
 class Location(BaseModel):
-    _id: str
+    id: str = uuid.uuid4()
     name: str
     zip_code: str
     address: str
     number: str
-    complement: str
-    contacts: List[str]
-    comments: str
-    items: Optional[List[ItemType]]
+    complement: Optional[str] = None
+    contacts: Optional[List[str]] = []
+    comments: Optional[str] = None
+    items: Optional[List[ItemType]] = []
 
 
 class Contact(BaseModel):

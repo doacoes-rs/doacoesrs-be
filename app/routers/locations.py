@@ -1,4 +1,5 @@
 from http import HTTPStatus
+from typing import Optional, List
 
 from fastapi import APIRouter, Response
 
@@ -11,25 +12,26 @@ service = LocationsService()
 
 
 @router.get("")
-def list_location() -> list[Location]:
+def list_location(page: int = 0, state: str = None, city: str = None) -> Optional[List[Location]]:
     return service.list()
 
 
 @router.post("")
-def create_location(Location: Location) -> Location:
-    return {}
+def create_location(location: Location) -> Location:
+    return service.create(location)
 
 
-@router.patch("")
+@router.patch("/{id}")
 def update_location(Location: Location) -> Location:
     return {}
 
 
 @router.delete("/{id}", responses={204: {}})
 def delete_location(id: str) -> None:
+    service.delete(id)
     return Response(status_code=HTTPStatus.NO_CONTENT)
 
 
 @router.get("/{id}")
-def location(id: str) -> Location:
+def location(id: str) -> Optional[Location]:
     return service.list_one(id)
