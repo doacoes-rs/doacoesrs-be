@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
-from .routers import location
+from app.routers import locations
 
 app = FastAPI()
 
-app.include_router(location.router, prefix="/locations")
+app.include_router(locations.router, prefix="/locations")

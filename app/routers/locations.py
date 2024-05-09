@@ -1,11 +1,14 @@
 from fastapi import APIRouter, Request
 
+from app.schemas import Location
+from app.services import LocationsService
+
 router = APIRouter()
 
 
 @router.get("")
-def list_location(request: Request):
-    return [{"id": "4e56ab83-99c3-42f4-9181-ff9de718e698"}]
+def list_location(request: Request) -> list[Location]:
+    return LocationsService().find_all()
 
 
 @router.post("")
