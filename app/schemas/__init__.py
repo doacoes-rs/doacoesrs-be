@@ -15,6 +15,7 @@ class ItemType(str, Enum):
 
 
 class Location(BaseModel):
+    _id: str
     name: str
     zip_code: str
     address: str
