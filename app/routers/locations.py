@@ -12,7 +12,9 @@ service = LocationsService()
 
 
 @router.get("")
-def list_location(page: int = 0, state: str = None, city: str = None) -> Optional[List[Location]]:
+def list_location(
+    page: int = 0, state: str = None, city: str = None
+) -> Optional[List[Location]]:
     return service.list()
 
 
@@ -34,4 +36,8 @@ def delete_location(id: str) -> None:
 
 @router.get("/{id}")
 def location(id: str) -> Optional[Location]:
-    return service.list_one(id)
+    location = service.list_one(id)
+    if not location:
+        return Response(status_code=HTTPStatus.NOT_FOUND)
+
+    return location

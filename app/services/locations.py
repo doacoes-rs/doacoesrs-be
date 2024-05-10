@@ -2,9 +2,9 @@ from typing import Optional
 
 from app.schemas import Location
 
-from app.db.memdb import InMemoryDB
+from app.db.locationsdb import LocationsDB
 
-db = InMemoryDB()
+db = LocationsDB()
 
 
 class LocationsService:

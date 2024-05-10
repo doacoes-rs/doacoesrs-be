@@ -8,13 +8,13 @@ from pydantic import BaseModel
 
 
 class ItemType(str, Enum):
-    ALIMENTOS = "Alimentos"
-    ROUPAS = "Roupas"
-    REMEDIOS = "Remédios"
-    HIGIENE = "Produtos de higiene"
-    LIMPEZA = "Produtos de limpeza"
-    PET = "Produtos para PETs"
-    OUTROS = "Outros"
+    ALIMENTOS = "ALIMENTOS"
+    ROUPAS = "ROUPAS"
+    REMEDIOS = "REMEDIOS"
+    HIGIENE = "HIGIENE"
+    LIMPEZA = "LIMPEZA"
+    PET = "PETS"
+    OUTROS = "OUTROS"
 
 
 class Location(BaseModel):
