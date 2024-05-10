@@ -26,7 +26,7 @@ class Location(BaseModel):
     city: str
     state: str
     complement: Optional[str] = None
-    contacts: Optional[List[str]] = []
+    contacts: Optional[str] = ""
     comments: Optional[str] = None
     items: Optional[List[ItemType]] = []
     expiration_date: Optional[int] = int(time.time())
