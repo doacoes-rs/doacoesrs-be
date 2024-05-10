@@ -14,6 +14,8 @@ data: List[Location] = [
         complement="sala de aula",
         contacts=["11912341234", "43514351"],
         comments="estamos recebendo tudo",
+        city="Sao Paulo",
+        state="SP",
         items=[],
     ),
     Location(
@@ -25,6 +27,8 @@ data: List[Location] = [
         complement="sala do diretor",
         contacts=["11912341234", "43514351"],
         comments="estamos recebendo tudo",
+        city="Sao Paulo",
+        state="SP",
         items=[],
     ),
 ]

@@ -21,6 +21,8 @@ class Location(BaseModel):
     zip_code: str
     address: str
     number: str
+    city: str
+    state: str
     complement: Optional[str] = None
     contacts: Optional[List[str]] = []
     comments: Optional[str] = None
