@@ -1,0 +1,75 @@
+[
+    {
+        "name": "id",
+        "type": "STRING",
+        "mode": "REQUIRED",
+        "description": "ID",
+        "maxLength": "36"
+    },
+    {
+        "name": "name",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Nome da localização"
+    },
+    {
+        "name": "zip_code",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "CEP"
+    },
+    {
+        "name": "address",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Endereço"
+    },
+    {
+        "name": "Number",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Número"
+    },
+    {
+        "name": "city",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Cidade"
+    },
+    {
+        "name": "state",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Estado"
+    },
+    {
+        "name": "complement",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Complemento"
+    },
+    {
+        "name": "contacts",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Contatos"
+    },
+    {
+        "name": "comments",
+        "type": "STRING",
+        "mode": "NULLABLE",
+        "description": "Observação"
+    },
+    {
+        "name": "items",
+        "type": "JSON",
+        "mode": "NULLABLE",
+        "description": "Itens aceitos"
+    },
+    {
+        "name": "expiration_date",
+        "type": "TIMESTAMP",
+        "mode": "NULLABLE",
+        "description": "Data de expiração"
+    }
+]

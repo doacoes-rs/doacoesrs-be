@@ -17,6 +17,7 @@ data: List[Location] = [
         city="Sao Paulo",
         state="SP",
         items=[],
+        expiration_date=1715304177,
     ),
     Location(
         id="a4957744-83ee-42b6-b8e7-6a48ed0e9d37",
@@ -30,6 +31,7 @@ data: List[Location] = [
         city="Sao Paulo",
         state="SP",
         items=[],
+        expiration_date=1715304177,
     ),
 ]
 

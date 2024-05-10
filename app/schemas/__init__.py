@@ -1,4 +1,6 @@
+import datetime
 import uuid
+import time
 from enum import Enum
 from typing import List, Optional
 
@@ -27,6 +29,7 @@ class Location(BaseModel):
     contacts: Optional[List[str]] = []
     comments: Optional[str] = None
     items: Optional[List[ItemType]] = []
+    expiration_date: Optional[int] = int(time.time())
 
 
 class Contact(BaseModel):
