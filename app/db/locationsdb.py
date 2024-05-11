@@ -54,12 +54,13 @@ class LocationsDB(DB):
     def create_one(self, model: any):
         model.id = uuid.uuid4()
         expiration_date = datetime.fromtimestamp(model.expiration_date)
+        items = json.dumps([item.value for item in model.items])
         # TODO: Refactor this to implement items field (json)
         job = self.client.query(
             f"""
             INSERT INTO {self.table}
                 (
-                    id, name, zip_code, address, number, city, state, complement, contacts, comments, expiration_date
+                    id, name, zip_code, address, number, city, state, complement, contacts, comments, expiration_date, items
                 )
             VALUES
                 (
@@ -73,7 +74,8 @@ class LocationsDB(DB):
                     '{model.complement}',
                     '{model.contacts}',
                     '{model.comments}',
-                    '{expiration_date}'
+                    '{expiration_date}',
+                    PARSE_JSON('{items}')
                 )"""
         )
         job.result()
@@ -91,6 +93,6 @@ class LocationsDB(DB):
             comments=row.comments,
             city=row.city,
             state=row.state,
-            items=row.items,
+            items=row.get("items"),
             expiration_date=row.expiration_date.timestamp(),
         )
