@@ -7,6 +7,10 @@ class DB(ABC):
         pass
 
     @abstractmethod
+    def find_by_state_and_city(self):
+        pass
+
+    @abstractmethod
     def find_one(self, id: str):
         pass
 

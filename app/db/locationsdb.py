@@ -22,6 +22,16 @@ class LocationsDB(DB):
             locations.append(self.read_row(row))
         return locations
 
+    def find_by_state_and_city(self, state: str, city: str):
+        job = self.client.query(
+            f"SELECT * FROM {self.table} WHERE state = '{state}' AND city = '{city}'"
+        )
+        rows = job.result()
+        locations = []
+        for row in rows:
+            locations.append(self.read_row(row))
+        return locations
+
     def find_one(self, id: str):
         job = self.client.query(f"SELECT * FROM {self.table} WHERE id = '{id}'")
         rows = job.result()

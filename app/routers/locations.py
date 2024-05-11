@@ -15,7 +15,7 @@ service = LocationsService()
 def list_location(
     page: int = 0, state: str = None, city: str = None
 ) -> Optional[List[Location]]:
-    return service.list()
+    return service.list(state, city)
 
 
 @router.post("")
