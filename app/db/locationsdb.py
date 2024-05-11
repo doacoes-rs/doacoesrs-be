@@ -76,7 +76,7 @@ class LocationsDB(DB):
             zip_code=row.zip_code,
             address=row.address,
             # TODO: fix this Number with the first letter in uppercase
-            number=row.Number,
+            number=row.number,
             complement=row.complement,
             contacts=row.contacts,
             comments=row.comments,
