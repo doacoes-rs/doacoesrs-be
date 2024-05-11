@@ -85,13 +85,12 @@ class LocationsDB(DB):
             name=row.name,
             zip_code=row.zip_code,
             address=row.address,
-            # TODO: fix this Number with the first letter in uppercase
             number=row.number,
             complement=row.complement,
             contacts=row.contacts,
             comments=row.comments,
             city=row.city,
             state=row.state,
-            items=[],
+            items=row.items,
             expiration_date=row.expiration_date.timestamp(),
         )
