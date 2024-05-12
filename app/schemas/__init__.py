@@ -1,4 +1,3 @@
-import datetime
 import uuid
 import time
 from enum import Enum
@@ -9,6 +8,7 @@ from pydantic import BaseModel
 
 class ItemType(str, Enum):
     ALIMENTOS = "ALIMENTOS"
+    AGUA = "AGUA"
     ROUPAS = "ROUPAS"
     REMEDIOS = "REMEDIOS"
     HIGIENE = "HIGIENE"
