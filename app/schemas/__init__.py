@@ -30,6 +30,7 @@ class Location(BaseModel):
     comments: Optional[str] = None
     items: Optional[List[ItemType]] = []
     expiration_date: Optional[int] = int(time.time())
+    create_date: Optional[int] = int(time.time())
 
 
 class Contact(BaseModel):
