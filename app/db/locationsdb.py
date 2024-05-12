@@ -23,9 +23,23 @@ class LocationsDB(DB):
         return locations
 
     def find_by_state_and_city(self, state: str, city: str):
-        job = self.client.query(
-            f"SELECT * FROM {self.table} WHERE state = '{state}' AND city = '{city}'"
-        )
+        query = f"SELECT * FROM {self.table}"
+
+        filters = []
+
+        if state:
+            filters.append(f"state = '{state}'")
+
+        if city:
+            filters.append(f"city = '{city}'")
+
+        if filters:
+            where = " AND ".join(filters)
+            query += f" WHERE {where}"
+
+        print(query)
+
+        job = self.client.query(query)
         rows = job.result()
         locations = []
         for row in rows:

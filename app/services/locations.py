@@ -9,7 +9,7 @@ db = LocationsDB()
 
 class LocationsService:
     def list(self, state: str = None, city: str = None) -> list[Location]:
-        if state and city:
+        if state or city:
             return db.find_by_state_and_city(state, city)
 
         return db.find_all()
