@@ -37,8 +37,6 @@ class LocationsDB(DB):
             where = " AND ".join(filters)
             query += f" WHERE {where}"
 
-        print(query)
-
         job = self.client.query(query)
         rows = job.result()
         locations = []
@@ -49,7 +47,6 @@ class LocationsDB(DB):
     def find_one(self, id: str):
         job = self.client.query(f"SELECT * FROM {self.table} WHERE id = '{id}'")
         rows = job.result()
-        # TODO: Refactor this to an beatiful way
         for row in rows:
             return self.read_row(row)
 
@@ -70,12 +67,11 @@ class LocationsDB(DB):
         expiration_date = datetime.fromtimestamp(model.expiration_date)
         create_date = datetime.fromtimestamp(model.create_date)
         items = json.dumps([item.value for item in model.items])
-        # TODO: Refactor this to implement items field (json)
         job = self.client.query(
             f"""
             INSERT INTO {self.table}
                 (
-                    id, name, zip_code, address, number, city, state, complement, contacts, comments, expiration_date, items, create_date
+                    id, name, zip_code, address, neighborhood, number, city, state, complement, contacts, comments, expiration_date, items, create_date
                 )
             VALUES
                 (
@@ -83,6 +79,7 @@ class LocationsDB(DB):
                     '{model.name}',
                     '{model.zip_code}',
                     '{model.address}',
+                    '{model.neighborhood}',
                     '{model.number}',
                     '{model.city}',
                     '{model.state}',
@@ -109,6 +106,7 @@ class LocationsDB(DB):
             comments=row.comments,
             city=row.city,
             state=row.state,
+            neighborhood=row.neighborhood,
             items=row.get("items"),
             expiration_date=row.expiration_date.timestamp(),
             create_date=row.create_date.timestamp(),
