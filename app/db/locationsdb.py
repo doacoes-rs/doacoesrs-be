@@ -106,7 +106,7 @@ class LocationsDB(DB):
             comments=row.comments,
             city=row.city,
             state=row.state,
-            neighborhood=row.neighborhood,
+            neighborhood=row.neighborhood or "",
             items=row.get("items"),
             expiration_date=row.expiration_date.timestamp(),
             create_date=row.create_date.timestamp(),
