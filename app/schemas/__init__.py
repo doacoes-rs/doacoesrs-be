@@ -24,6 +24,7 @@ class Location(BaseModel):
     address: str
     number: str
     city: str
+    neighborhood: str
     state: str
     complement: Optional[str] = None
     contacts: Optional[str] = ""
