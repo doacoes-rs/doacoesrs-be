@@ -26,6 +26,8 @@ class Location(BaseModel):
     city: str
     neighborhood: str
     state: str
+    lat: Optional[float] = None
+    lng: Optional[float] = None
     complement: Optional[str] = None
     contacts: Optional[str] = ""
     comments: Optional[str] = None

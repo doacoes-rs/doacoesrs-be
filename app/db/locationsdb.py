@@ -71,7 +71,7 @@ class LocationsDB(DB):
             f"""
             INSERT INTO {self.table}
                 (
-                    id, name, zip_code, address, neighborhood, number, city, state, complement, contacts, comments, expiration_date, items, create_date
+                    id, name, zip_code, address, neighborhood, number, city, state, complement, lat, lng, contacts, comments, expiration_date, items, create_date
                 )
             VALUES
                 (
@@ -84,6 +84,8 @@ class LocationsDB(DB):
                     '{model.city}',
                     '{model.state}',
                     '{model.complement}',
+                    {model.lat},
+                    {model.lng},
                     '{model.contacts}',
                     '{model.comments}',
                     '{expiration_date}',
@@ -107,6 +109,8 @@ class LocationsDB(DB):
             city=row.city,
             state=row.state,
             neighborhood=row.neighborhood or "",
+            lat=row.lat or 0.0,
+            lng=row.lng or 0.0,
             items=row.get("items"),
             expiration_date=row.expiration_date.timestamp(),
             create_date=row.create_date.timestamp(),
